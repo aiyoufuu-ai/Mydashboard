@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Actions画面から手動で再デプロイできるようにする
+  workflow_dispatch:
 
 permissions:
   contents: read
