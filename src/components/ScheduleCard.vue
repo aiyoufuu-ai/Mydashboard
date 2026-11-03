@@ -50,7 +50,7 @@ function isToday(dateStr) {
     <div v-else-if="!events.length" class="empty">予定はありません</div>
     <div v-else class="schedule-list">
       <div
-        v-for="(ev, i) in events.slice(0, 10)"
+        v-for="(ev, i) in events.slice(0, 5)"
         :key="i"
         class="schedule-item"
         :class="{ today: isToday(ev.start) }"
@@ -70,7 +70,7 @@ function isToday(dateStr) {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  max-height: 400px;
+  max-height: 200px;
   overflow-y: auto;
 }
 

@@ -29,7 +29,10 @@ const totalAmount = computed(() =>
 
 <template>
   <div class="card">
-    <h2>{{ month }}月の使用状況</h2>
+    <div class="card-head">
+      <h2>{{ month }}月の使用状況</h2>
+      <slot name="action" />
+    </div>
     <div v-if="loading" class="loading">読み込み中...</div>
     <template v-else>
       <div class="summary">
@@ -45,3 +48,18 @@ const totalAmount = computed(() =>
     </template>
   </div>
 </template>
+
+<style scoped>
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+/* グローバルの .card h2 の margin-bottom を打ち消し、余白は .card-head で持つ */
+.card-head h2 {
+  margin-bottom: 0;
+}
+</style>
