@@ -56,14 +56,17 @@ npm run dev
 
 ### 3. GitHub Pagesへのデプロイ
 
-GitHub Pagesは **mainブランチ** を使用しています。
+公開URL: https://aiyoufuu-ai.github.io/Mydashboard/
+
+**mainブランチ** へのpushをトリガーに、`.github/workflows/deploy.yml` が
+ビルドとデプロイを自動で実行します。手元でのビルドは不要です。
 
 ```bash
-npm run build
-git add dist src
-git commit -m "build: 説明"
 git push origin main
 ```
+
+`vite.config.js` の `base` はリポジトリ名(`/Mydashboard/`)と
+大文字小文字まで一致させる必要があります。ここがずれるとCSS/JSが404になります。
 
 GASのコードを変更した場合は、GASエディタにコピーして「デプロイを管理」→ 既存のデプロイを「新しいバージョン」で更新してください。
 
